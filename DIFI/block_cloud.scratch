@@ -1,0 +1,36 @@
+{
+   "host": "127.0.0.1",
+   "extensionName": "WF03.Cloud",
+   "extensionPort": 9999,
+   "useHTTP": true,
+      "blockSpecs": [
+
+            [" ", "HTTP %m.restfulType %s", "http", "GET", "http://api.thingspeak.com/apps/thinghttp/send_request?api_key=EM18B52PSHXZB4DD"],
+
+            [" ", "雲端資料 JSON 從 %s 取得", "json", "https://spreadsheets.google.com/feeds/list/1GS-3Xtr5W_Zxhm55lQLT8lyLLYrPEjF_v7aAShQ2Swc/1/public/values?alt=json"],
+            [" ", "讀取第 %n 筆欄位 %d.jsonField 的雲端資料", "jsonRead", 1, "content"],
+            ["r", "雲端資料筆數", "jsonCount"],
+            ["r", "顯示雲端資料", "jsonData"],
+            [" ", "LASS 設備編號 %s", "lass", ""],
+            [" ", "說 %s", "speak_text", "Scratch"],
+            [" ", "說 %m.lang %s", "speak_tts", "zh", "Scratch"],
+            [" ", "監聽語音", "speech_text"],
+            ["r", "語音文字", "voiceText"],
+            [" ", "清空語音文字", "flush"],
+            ["r", "讀取 %m.sensor 參數 %m.sensorParam", "readSensor", "LASS", "Value"],
+            [" ", "寫入 Thingspeak ID %s 欄位1 %s 欄位2 %s 欄位3 %s 欄位4 %s 欄位5 %s 欄位6 %s 欄位7 %s 欄位8 %s", "thingspeak", "", "", "", "", "", "", "", ""],
+            [" ", "IFTTT ID %s 傳送事件 %s 參數1 %s 參數2 %s 參數3 %s", "ifttt","","","","",""],
+            [" ", "讀取 Firebase %s 資料庫節點 %s", "firebase", "", ""],
+            ["r", "Firebase 資料", "firebaseData"],
+            [" ", "寫入 %s 到雲參數 %m.cloudParams 轉換 %n %n 到 %n %n", "cloudParams", "", 0, 0,0,0,0],
+            ["r", "讀取雲參數 %m.cloudParams", "cpData", 0],
+   ],
+   "menus":{
+            "jsonField": ["title", "content","field1","field2"],
+            "sensor": ["RESTfulGET", "LASS", "Voice"],
+            "lang": ["zh", "en", "ja", "vi", "ko", "fr"],
+            "sensorParam": ["Value", "°C", "°F", "濕度", "PM25"],
+            "restfulType": ["GET", "POST"],
+            "cloudParams": [0,1,2,3,4,5,6,7,8,9]
+   }
+}

@@ -1,0 +1,38 @@
+{
+   "host": "127.0.0.1",
+   "extensionName": "WF01.GPIO",
+   "extensionPort": 9999,
+   "useHTTP": true,
+      "blockSpecs": [
+            [" ", "WiFi 通訊位址 %s", "set_ip", "IP"],
+            [" ", "中斷 WiFi 連線", "stopWF8266R"],
+            ["r", "WiFi 連線狀態", "wf8266rState"],
+            [" ", "腳位 %d.gpioPin 模式設為 %m.mode", "pinMode", 13, "OUTPUT"],
+            [" ", "腳位 %d.gpioPin 數位輸出 %m.level", "digitalWrite", 13, 1],
+            [" ", "腳位 %d.gpio 類比輸出 %n", "analogWrite", "3", 255],
+            ["r", "讀取數位腳位 %d.gpio ", "digitalRead", 13],
+            ["r", "讀取類比腳位 A%d.analogGPIO ", "analogRead", "0"],
+            [" ", "同時輸出：腳位 %d.gpio 輸出 %d.pwmValue 腳位 %d.gpio 輸出 %d.pwmValue 腳位 %d.gpio 輸出 %d.pwmValue 腳位 %d.gpio 輸出 %d.pwmValue", "car", 5, 0, 6, 0, 9, 0, 10, 0],
+            [" ", "7段顯示：A %d.gpio B %d.gpio C %d.gpio D %d.gpio E %d.gpio F %d.gpio G %d.gpio 點 %d.gpio 輸出 %d.pwmValue", "seg", 2, 3, 4, 5, 6, 7, 8, 9, 1]
+   ],
+   "menus":{
+    "mode": ["INPUT", "OUTPUT", "INPUT_PULLUP"],
+            "bool": ["True", "False"],
+            "jsonField": ["title", "content","field1","field2"],
+            "sensor": ["HCSR", "RESTfulGET", "LASS", "Voice"],
+            "sensorParam": ["Value", "C", "F", "H", "PM25"],
+            "level": ["0", "1"],
+            "flushType": ["Voice"],
+            "pwmGPIO": ["3", "5", "6", "9", "10", "11"],
+            "pwmValue": ["0", "1", "50", "100", "150", "255"],
+            "analogGPIO": ["0", "1", "2", "3", "4", "5", "6", "7"],
+            "restfulType": ["GET", "POST"],
+            "gpioPin": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "A0(14)", "A1(15)", "A2(16)", "A3(17)", "A4(18)", "A5(19)", "A6(20)", "A7(21)"],
+            "gpio": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
+            "tone":["C1,262","C1#,277","D1,294","D1#,311","E1,330","F1,349","F1#,370","G1,392","G1#,415","A1,440","A1#,466","B1,494"
+            ,"C2,523","C2#,554","D2,587","D2#,622","E2,659","F2,698","F2#,740","G2,784","G2#,831","A2,880","A2#,932","B2,988"
+            ,"C3,1046","C3#,1109","D3,1175","D3#,1245","E3,1318","F3,1397","F3#,1480","G3,1568","G3#,1661","A3,1760","A3#,1865","B3,1976"],
+            "wfgpio": ["5", "4", "12", "13", "14", "15", "16", "0", "1", "2", "3"],
+            "wfgpioType":["數位","類比"]
+   }
+}

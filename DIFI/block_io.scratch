@@ -1,0 +1,19 @@
+{
+   "host": "127.0.0.1",
+   "extensionName": "WF04.IO",
+   "extensionPort": 9999,
+   "useHTTP": true,
+      "blockSpecs": [
+
+            [" ", "將資料 %s 加到檔案 %s 模式 %m.fileMode", "fileWrite", "Scratch", "data.txt", "Append"],
+            [" ", "讀取檔案 %s", "fileRead", "data.txt"],
+            [" ", "移到第 %n 筆的第 %n 欄", "fileMove", 1, 0],
+            ["r", "筆數", "fileRow"],
+            ["r", "資料", "fileText"],
+
+            [" ", "開啟 %s", "openFile", "http://xxx.com"]
+   ],
+   "menus":{
+            "fileMode": ["Append","Write"]
+    }
+}

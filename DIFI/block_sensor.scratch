@@ -1,0 +1,56 @@
+{
+   "host": "127.0.0.1",
+   "extensionName": "WF02.Sensor",
+   "extensionPort": 9999,
+   "useHTTP": true,
+      "blockSpecs": [
+            [" ", "腳位 %d.gpio 播放音調，頻率為 %d.tone 時間為 %n ms", "tone", "5", "C2,523", 500],
+            [" ", "HCSR 超音波感測器，Echo 在腳位 %d.gpio Trig 在腳位 %d.gpio", "distance", "5", "6"],
+            ["r", "讀取超音波感測器回傳距離", "readDistance"],
+            [" ", "伺服馬達為腳位 %d.gpio 轉動角度為 %n 度", "servo", "5", 90],
+            [" ", "溫濕度感測器 %d.dhtType 在腳位 %d.gpio", "dht", 11, "5"],
+            [" ", "紅外線讀取在腳位 %d.gpio", "ircode","7"],
+            [" ", "發送紅外線碼 %s 在腳位 %d.gpio", "irsend", "", "6"],
+            [" ", "讀取光照度 BH1750", "lux"],
+            [" ", "讀取PM2.5 GP2Y1014AU0F 3腳接 %d.gpio 5腳接 %d.gpioAPin", "pm25", "7", "A0(14)"],
+            [" ", "設定燈條腳位 %d.gpio LED有 %n 顆", "set_strip", "13", 0],
+            [" ", "設定燈條第 %n 顆LED顏色為 紅 %n 綠 %n 藍 %n", "run_strip", 0, 0, 0, 0],
+            [" ", "LCD 在 列 %n 格 %n 顯示 %s 位址 %d.lcdi2c", "lcd", 1, 1, "HELLO WORLD" ,"0x3F"],
+            [" ", "LCD %m.lcdAction 列 %s", "lcdAct", "clear", ""],
+            [" ", "OLED 清除 座標 %n %n 寬 %n 高 %n", "oled_clear", 0,0,0,0],
+            [" ", "OLED 座標 %n %n 字級 %m.oledFontSize 顯示英數 %s", "oled_string", 0, 0, 10, "WFduino"],
+            [" ", "OLED 座標 %n %n 字級 %d.oledFontSize 顯示中文 %s", "oled_fontCode", 0, 0, 16, "物聯思維教育"],
+
+            [" ", "說 %s", "speak_text", "Scratch"],
+            [" ", "監聽語音", "speech_text"],
+            ["r", "語音文字", "voiceText"],
+            [" ", "清空語音文字", "flush"],
+
+            ["r", "讀取感測器 %m.sensor 參數 %m.sensorParam", "readSensor", "LASS", "Value"],
+   ],
+   "menus":{
+    "mode": ["INPUT", "OUTPUT", "INPUT_PULLUP"],
+            "bool": ["True", "False"],
+            "jsonField": ["title", "content","field1","field2"],
+            "sensor": ["HCSR", "Voice","DHT","IR","LUX","PM25"],
+            "sensorParam": ["Value", "°C", "°F", "濕度", "PM25"],
+            "level": ["0", "1"],
+            "flushType": ["Voice"],
+            "pwmGPIO": ["3", "5", "6", "9", "10", "11"],
+            "pwmValue": ["0", "1", "50", "100", "150", "255"],
+            "analogGPIO": ["0", "1", "2", "3", "4", "5", "6", "7"],
+            "restfulType": ["GET", "POST"],
+            "dhtType": ["11", "21","22"],
+            "gpioAPin": ["A0(14)", "A1(15)", "A2(16)", "A3(17)", "A4(18)", "A5(19)", "A6(20)", "A7(21)"],
+            "gpioPin": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "A0(14)", "A1(15)", "A2(16)", "A3(17)", "A4(18)", "A5(19)", "A6(20)", "A7(21)"],
+            "gpio": ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"],
+            "tone":["C1,262","C1#,277","D1,294","D1#,311","E1,330","F1,349","F1#,370","G1,392","G1#,415","A1,440","A1#,466","B1,494"
+            ,"C2,523","C2#,554","D2,587","D2#,622","E2,659","F2,698","F2#,740","G2,784","G2#,831","A2,880","A2#,932","B2,988"
+            ,"C3,1046","C3#,1109","D3,1175","D3#,1245","E3,1318","F3,1397","F3#,1480","G3,1568","G3#,1661","A3,1760","A3#,1865","B3,1976"],
+            "wfgpio": ["5", "4", "12", "13", "14", "15", "16", "0", "1", "2", "3"],
+            "wfgpioType":["數位","類比"],
+            "lcdi2c": ["0x20","0x27","0x3F"],
+            "lcdAction": ["clear","blink","noBlink","backlight","noBacklight","move_left","move_right"],
+            "oledFontSize": [10,16,24,32,40,44]
+   }
+}
